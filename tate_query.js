@@ -66,19 +66,19 @@ var proyeccion= {'artist': 1, 'title':1, 'year': 1, 'acquisitionyear': 1, 'mediu
 db.tate.find ( logic, proyeccion )
 
 
-// obras de las que no sabemos de qué año son --> INTERESANTE
+// obras de las que no sabemos de qué año son 
 var query = {'year':{$type:'null'}}
 var proyeccion= {'artist': 1, 'title':1, 'year': 1, 'acquisitionyear': 1, 'medium':1  }
 db.tate.find ( query, proyeccion )
 
-// obras de las que no sabemos de qué año son ni tampoco su título --> INTERESANTE
+// obras de las que no sabemos de qué año son ni tampoco su título 
 var query1 = {'year':{$type:'null'}}
 var query2 = {'title':'[title not known]'}
 var logic = {$and: [query1, query2]}
 var proyeccion= {'artist': 1, 'title':1, 'year': 1, 'acquisitionyear': 1, 'medium':1, '_id':0  }
 db.tate.find ( logic,  proyeccion )
 
-// obras de las que no sabemos de qué año son ni tampoco su título, adquiridas entre 1850 y 1900 --> INTERESANTE
+// obras de las que no sabemos de qué año son ni tampoco su título, adquiridas entre 1850 y 1900 
 var query1 = {'year':{$type:'null'}}
 var query2 = {'title':'[title not known]'}
 var query3 = {'acquisitionyear': {$gte: '1850', $lte: '1900'}}
@@ -87,7 +87,7 @@ var proyeccion= {'artist': 1, 'title':1, 'year': 1, 'acquisitionyear': 1, 'mediu
 db.tate.find ( logic,  proyeccion )
 
 // obras de las que no sabemos de qué año son ni tampoco su título, adquiridas entre 1850 y 1900,
-// cuya técnica pictórica sea tinta sobre papel (ink on paper) --> INTERESANTE
+// cuya técnica pictórica sea tinta sobre papel (ink on paper) 
 var query1 = {'year':{$type:'null'}}
 var query2 = {'title':'[title not known]'}
 var query3 = {'acquisitionyear': {$gte: '1850', $lte: '1900'}}
